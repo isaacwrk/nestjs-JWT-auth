@@ -1,17 +1,17 @@
 import { User } from '../entities/user.entity';
 import {
-  isEmail,
-  isString,
+  IsEmail,
+  IsString,
   Matches,
   MaxLength,
   MinLength,
 } from 'class-validator';
 
 export class CreateUserDto extends User {
-  @isEmail()
+  @IsEmail()
   email: string;
 
-  @isString()
+  @IsString()
   @MinLength(4)
   @MaxLength(20)
   @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
@@ -19,6 +19,6 @@ export class CreateUserDto extends User {
   })
   password: string;
 
-  @isString()
+  @IsString()
   name: string;
 }

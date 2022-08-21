@@ -22,4 +22,7 @@ export class UserService {
       password: undefined,
     };
   }
+  findByEmail(email: string) {
+    return this.prisma.user.findUnique({ where: { email } });
+  }
 }
